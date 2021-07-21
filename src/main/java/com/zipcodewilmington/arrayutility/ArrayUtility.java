@@ -30,24 +30,25 @@ public class ArrayUtility<T> {
         return (T[]) jawner.toArray();
     }
 
-    public T getNumberOfOccurrences(T valueToEvaluate) {
+    public int getNumberOfOccurrences(T valueToEvaluate) {
         ArrayList<T> jawner = new ArrayList<>(Arrays.asList(inputArray));
         Integer result = Collections.frequency(jawner, valueToEvaluate);
-        return (T) result;
+        return  result;
     }
 
     public T getMostCommonFromMerge(T[] arrayToMerge) {
         ArrayList<T> jawner = new ArrayList<>(Arrays.asList(inputArray));
         ArrayList<T> merge = new ArrayList<>(Arrays.asList(arrayToMerge));
         jawner.addAll(merge);
-//        Integer result = Stream.of(jawner).collect(Collectors.groupingBy(Integer::valueOf))
-//                .values()
-//                .stream()
-//                .sorted((a, b) -> b.size() - a.size())
-//                .collect(Collectors.toList()).get(0).get(0);
-        List<T> sorted = jawner.stream()
-                    .sorted()
-                    .collect(Collectors.toList());
-        return null;
+
+        T mostJawn = null;
+        int most = Integer.MIN_VALUE;
+        for (T object : jawner) {
+            if (getNumberOfOccurrences(object) > most) {
+                mostJawn = object;
+                most = getNumberOfOccurrences(object);
+            }
+        }
+        return mostJawn;
     } // Thought process here - sorted the array, use Lamda? maybe? to
 }     // to check for most commong object
