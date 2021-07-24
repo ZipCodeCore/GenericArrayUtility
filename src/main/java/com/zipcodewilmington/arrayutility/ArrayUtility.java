@@ -2,6 +2,7 @@ package com.zipcodewilmington.arrayutility;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by leon on 3/6/18.
@@ -55,7 +56,19 @@ return count+count1;
 }
 
 public E getMostCommonFromMerge(E[] arrayToMerge){
-        return null;
+    List<E> input= new ArrayList<E>(Arrays.asList(inputArray));
+   // List<E> merge= new ArrayList<E>(Arrays.asList(arrayToMerge));
+    input.addAll(Arrays.asList(arrayToMerge));
+    E mostCommon=null;
+    int count=0;
+    for (E element:input
+         ) {
+        if(getNumberOfOccurrences(element)>count){
+            mostCommon=element;
+            count=getNumberOfOccurrences(element);
+    }
+            }
+    return mostCommon;
+        }
 
-}
 }
