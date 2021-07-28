@@ -1,6 +1,8 @@
 package com.zipcodewilmington.arrayutility;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by leon on 3/6/18.
@@ -14,11 +16,18 @@ public class ArrayUtility<SomeType> {
     }
 
     public Integer countDuplicatesInMerge(SomeType[] arrayToMerge, SomeType valueToEvaluate) {
+        List<SomeType> mergedArray = new ArrayUtility<SomeType>();
+        Collections.addAll(mergedArray, array );
+        Collections.addAll(mergedArray, arrayToMerge);
 
         return null;
     }
 
     public SomeType getMostCommonFromMerge(SomeType[] arrayToMerge) {
+        List<SomeType> mergedArray = new ArrayUtility<SomeType>();
+        Collections.addAll(mergedArray, array );
+        Collections.addAll(mergedArray, arrayToMerge);
+
         return null;
     }
 
