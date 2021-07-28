@@ -67,6 +67,12 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType[] removeValue(SomeType valueToRemove) {
-        return null;
+        List<SomeType> list = new ArrayList<>();
+        for(SomeType type : intArray){
+            if(type != valueToRemove)
+                list.add(type);
+        }
+        SomeType[] result = list.toArray(Arrays.copyOf(intArray,list.size()));
+        return result;
     }
 }
