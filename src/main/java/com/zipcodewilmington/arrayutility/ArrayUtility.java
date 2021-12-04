@@ -12,16 +12,33 @@ public class ArrayUtility<E> {
     public ArrayUtility(E[] array){
         this.array = array;
     }
-
+//is it posssible to do this better without an unchecked cast?
+    //maybe doing my own array conversion method?
     public E[] removeValue(E valueToRemove) {
-        return (array = Arrays.stream(this.array)
+        return (this.array = (E[]) Arrays.stream(this.array)
                 .filter(q-> !q.equals(valueToRemove))
-                .toArray([]::new));
+                .toArray());
     }
 
-    public E countDuplicatesInMerge(E[] arrayToMerge, E valueToEvaluate) {
+    public int countDuplicatesInMerge(E[] arrayToMerge, E valueToEvaluate) {
+        return Math
+                .toIntExact(Arrays
+                        .stream(arrayToMerge)
+                        .filter(q-> !q.equals(valueToEvaluate))
+                        .count());
     }
 
-    public E getNumberOfOccurrences(E valueToEvaluate) {
+    public int getNumberOfOccurrences(E valueToEvaluate) {
+        return Math
+                .toIntExact(Arrays
+                        .stream(this.array)
+                        .filter(q-> !q.equals(valueToEvaluate))
+                        .count());
+    }
+
+    public E getMostCommonFromMerge(Integer[] arrayToMerge) {
+        return Arrays
+                .stream(this.array)
+                .max()
     }
 }
