@@ -1,6 +1,6 @@
 package com.zipcodewilmington.arrayutility;
 
-import com.zipcodewilmington.UnitTestingUtils;
+import com.zipcodewilmington.arrayutility.UnitTestingUtils;
 import org.junit.Test;
 
 /**
@@ -14,11 +14,11 @@ public class RemoveValueTest {
         Integer valueToRemove = 7;
         Integer[] expected = {11, 2, 8, 4, 5, 0, 9, 8};
         Integer[] inputArray = {11, 2, valueToRemove, 8, 4, 5, valueToRemove, 0, 9, 8, valueToRemove};
-        ArrayUtility<Integer> arrayUtility = new ArrayUtility<Integer>(inputArray);
+        ArrayUtility<Integer> arrayUtility = new ArrayUtility<>(inputArray);
 
 
         // When
-        Integer[] actual = arrayUtility.removeValue(valueToRemove);
+        Object[] actual = arrayUtility.removeValue(valueToRemove);
 
         // Then
         UnitTestingUtils.assertArrayEquality(expected, actual);
@@ -34,7 +34,7 @@ public class RemoveValueTest {
 
 
         // When
-        Long[] actual = arrayUtility.removeValue(valueToRemove);
+        Object[] actual = arrayUtility.removeValue(valueToRemove);
 
         // Then
         UnitTestingUtils.assertArrayEquality(expected, actual);
@@ -51,7 +51,7 @@ public class RemoveValueTest {
 
 
         // When
-        String[] actual = arrayUtility.removeValue(valueToRemove);
+        Object[] actual = arrayUtility.removeValue(valueToRemove);
 
         // Then
         UnitTestingUtils.assertArrayEquality(expected, actual);
